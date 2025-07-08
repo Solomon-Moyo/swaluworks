@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 })
 export class Home {
   selectedServiceImages: string[] = [];
-selectedImageIndex: number = 0;
+  selectedImageIndex: number = 0;
   currentYear: number = new Date().getFullYear();
   services = [
     {
@@ -46,6 +46,8 @@ selectedImageIndex: number = 0;
       ],
     },
   ];
+  description: any =
+    'Established in 2018, Sfyso Welding and Aluminium Works is a privately owned South African company that is based in Welkom, Freestate.We are dedicated in making or manufacturing quality aluminium products like windows, doors, and all related products in the industry. We do home improvements in changing the old windows and doors putting in the new aluminium products to make an old house as good as new. All our customers are satisfied with our job. We use quality material on all our products and our pricing is also affordable to all classes of the community. We serve in and around South Africa, mostly in the Freestate. Our products are made from the high quality materials making our finished products high quality also. We make windows, garage doors, pivot doors, kitchen stable doors,normal sized doors, sliding doors and windows, folding or stacked doors, shopfronts, palise doors and all related products. If our customers need quotations they can visit us or call us to come to their homes and do measurements first and then give them quotation at free of charge';
 
   openImage(images: string[], index: number): void {
     this.selectedServiceImages = images;
