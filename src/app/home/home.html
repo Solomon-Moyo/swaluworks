@@ -1,0 +1,164 @@
+<!-- HERO SECTION -->
+<section id="hero" class="hero-section">
+    <div class="overlay">
+        <div class="hero-content container">
+            <img src="/assets/swaluWorksLogo.jpg" alt="Sfyso Logo" class="logo" />
+            <h1>Sfyso Welding & Aluminium</h1>
+            <p>Welding precision. Aluminium strength. Crafted for excellence.</p>
+            <a href="#contact" class="btn-primary">Request a Quote</a>
+        </div>
+    </div>
+</section>
+<!-- SERVICES -->
+<section id="services" class="section section-light">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="service-cards">
+            <div *ngFor="let service of services" class="card">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+
+                <div class="gallery">
+                    <img *ngFor="let img of service.images; let i = index" [src]="img" alt="{{ service.title }}"
+                        class="thumbnail" (click)="openImage(service.images, i)" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal with navigation -->
+    <div class="image-modal" *ngIf="selectedServiceImages.length > 0" (click)="closeImage()">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <button class="nav-button left" (click)="prevImage()">&#10094;</button>
+            <img [src]="selectedServiceImages[selectedImageIndex]" class="modal-image" />
+            <button class="nav-button right" (click)="nextImage()">&#10095;</button>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- ABOUT US -->
+<section id="about" class="section section-dark">
+    <div class="container about">
+        <div class="about-text">
+            <h2>About Sfyso</h2>
+            <p>
+                With over a decade of hands-on experience, we deliver high-performance welding and aluminium work that
+                stands the test of time. Our team is committed to precision, professionalism, and long-lasting
+                partnerships.
+            </p>
+        </div>
+        <div class="about-img">
+            <img src="/assets/swaluTeam.jpg" alt="About Sfyso Welding" />
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<!-- <section id="contact" class="section section-light">
+    <div class="container">
+        <h2 class="section-title">Let’s Build Together</h2>
+        <form class="form">
+            <input type="text" placeholder="Full Name" required />
+            <input type="email" placeholder="Email Address" required />
+            <textarea rows="4" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+    </div>
+</section> -->
+<section id="contact" class="section-contact">
+    <div class="container">
+        <h2 class="section-title">Get in Touch</h2>
+        <p class="section-subtitle">
+            Reach out to us for aluminium products, trellidors, carports, or any welding work.
+        </p>
+
+        <div class="contact-grid">
+            <a href="tel:0789222480" class="contact-card">
+                <div class="icon-circle">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/phone.png" alt="Phone">
+                </div>
+                <div class="contact-info">
+                    <h4>Phone (Mobile)</h4>
+                    <p>078 922 2480</p>
+                </div>
+            </a>
+
+            <a href="tel:0573610980" class="contact-card">
+                <div class="icon-circle">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/landline-phone.png" alt="Landline">
+                </div>
+                <div class="contact-info">
+                    <h4>Phone (Office)</h4>
+                    <p>057 361 0980</p>
+                </div>
+            </a>
+
+            <a href="mailto:swaluworks@gmail.com" class="contact-card">
+                <div class="icon-circle">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/email-open.png" alt="Email">
+                </div>
+                <div class="contact-info">
+                    <h4>Email</h4>
+                    <p>{{"swaluworks@gmail.com"}}</p>
+                </div>
+            </a>
+
+            <a href="https://wa.me/27789222480" target="_blank" class="contact-card">
+                <div class="icon-circle whatsapp">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/whatsapp.png" alt="WhatsApp">
+                </div>
+                <div class="contact-info">
+                    <h4>WhatsApp</h4>
+                    <p>Click to chat</p>
+                </div>
+            </a>
+
+            <a href="https://www.facebook.com/story.php/?story_fbid=397358982394897&id=100063623966164" target="_blank"
+                class="contact-card">
+                <div class="icon-circle facebook">
+                    <img src="https://img.icons8.com/ios-filled/50/ffffff/facebook-new.png" alt="Facebook">
+                </div>
+                <div class="contact-info">
+                    <h4>Facebook</h4>
+                    <p>Visit our page</p>
+                </div>
+            </a>
+
+            <div class="contact-card no-link">
+                <div class="icon-circle location">
+                    <img src="https://img.icons8.com/ios-filled/50/000000/marker.png" alt="Map">
+                </div>
+                <div class="contact-info">
+                    <h4>Visit Us</h4>
+                    <p>No. 56 3rd Street, Voorspoed, Welkom</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Embedded Google Map -->
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3589.337608974325!2d26.68727251457351!3d-27.985231682711936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9512626f75c5b5%3A0x3f53d431c80f2c23!2s56%203rd%20St%2C%20Voorspoed%2C%20Welkom%2C%209466!5e0!3m2!1sen!2sza!4v1684323288872!5m2!1sen!2sza"
+                width="100%" height="350" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>© {{ currentYear }} Sfyso Welding & Aluminium. All rights reserved.</p>
+    </div>
+</footer>
+
+<a class="floating-whatsapp" href="https://wa.me/27789222480" target="_blank" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 448 512" width="28" height="28" fill="white">
+        <path
+            d="M380.9 97.1C339-18.1 192.4-24.6 96 76.2c-45.7 47.9-60.8 114.8-43.2 177.4L0 480l228.6-47.9c58.7 16.8 122.4 1.7 170.2-43.2 100.8-96.4 94.2-243-17.9-291.8zM224 392c-93.1 0-168.6-75.5-168.6-168.6S130.9 55 224 55s168.6 75.5 168.6 168.6S317.1 392 224 392z" />
+    </svg>
+</a>
