@@ -1,13 +1,13 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Services } from "../components/services/services";
 @Component({
-  selector: 'app-home',
-  imports: [CommonModule, Services],
-  templateUrl: './home.html',
-  styleUrl: './home.scss',
+  selector: 'app-services',
+  imports: [CommonModule],
+  templateUrl: './services.html',
+  styleUrl: './services.scss',
 })
-export class Home {
+export class Services {
+  maxThumbnails: number = 5;
   selectedServiceImages: string[] = [];
   selectedImageIndex: number = 0;
   currentYear: number = new Date().getFullYear();
@@ -62,10 +62,21 @@ export class Home {
       title: 'Shopfronts & Custom Work',
       description:
         'Aluminium shopfronts, stacked doors, and custom aluminium projects.',
-      images: this.generateImages(31, 45),
+      images: this.generateImages(31, 44),
     },
   ];
 
+  mobileBreakpoint = 768; // px
+  screenWidth = window.innerWidth;
+
+  @HostListener('window:resize', [])
+  onResize() {
+    this.screenWidth = window.innerWidth;
+  }
+
+  isMobileView(): boolean {
+    return this.screenWidth <= this.mobileBreakpoint;
+  }
   // Helper method
   generateImages(start: number, end: number): string[] {
     const images = [];

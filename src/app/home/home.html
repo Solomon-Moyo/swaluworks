@@ -10,7 +10,7 @@
     </div>
 </section>
 <!-- SERVICES -->
-<section id="services" class="section section-light">
+<!-- <section id="services" class="section section-light">
     <div class="container">
         <h2 class="section-title">Our Services</h2>
 
@@ -20,23 +20,25 @@
                 <p>{{ service.description }}</p>
 
                 <div class="gallery">
-                    <img *ngFor="let img of service.images; let i = index" [src]="img" alt="{{ service.title }}"
-                        class="thumbnail" (click)="openImage(service.images, i)" />
+                    <img *ngFor="let img of service.images; let i = index" [src]="img"
+                        [alt]="service.title + ' image ' + (i + 1)" class="thumbnail" loading="lazy"
+                        (click)="openImage(service.images, i)" />
+
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal with navigation -->
-    <div class="image-modal" *ngIf="selectedServiceImages.length > 0" (click)="closeImage()">
+     Modal with navigation
+    <div class="image-modal" *ngIf="selectedServiceImages.length > 0" (click)="closeImage()" aria-hidden="false">
         <div class="modal-content" (click)="$event.stopPropagation()">
             <button class="nav-button left" (click)="prevImage()">&#10094;</button>
             <img [src]="selectedServiceImages[selectedImageIndex]" class="modal-image" />
             <button class="nav-button right" (click)="nextImage()">&#10095;</button>
         </div>
     </div>
-</section>
-
+</section> -->
+<app-services></app-services>
 
 
 <!-- ABOUT US -->
@@ -171,9 +173,9 @@
     </div>
 </footer>
 
-<a class="floating-whatsapp" href="https://wa.me/27789222480" target="_blank" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 448 512" width="28" height="28" fill="white">
-        <path
-            d="M380.9 97.1C339-18.1 192.4-24.6 96 76.2c-45.7 47.9-60.8 114.8-43.2 177.4L0 480l228.6-47.9c58.7 16.8 122.4 1.7 170.2-43.2 100.8-96.4 94.2-243-17.9-291.8zM224 392c-93.1 0-168.6-75.5-168.6-168.6S130.9 55 224 55s168.6 75.5 168.6 168.6S317.1 392 224 392z" />
-    </svg>
-</a>
+<div class="floating-whatsapp-wrapper" [class.visible]="showWhatsApp" [class.hidden]="!showWhatsApp">
+    <div class="floating-whatsapp-text">WhatsApp us!</div>
+    <a class="floating-whatsapp" href="https://wa.me/27789222480" target="_blank" aria-label="Chat on WhatsApp">
+        <img src="https://cdn-icons-png.flaticon.com/512/124/124034.png" alt="WhatsApp" width="40" height="40">
+    </a>
+</div>

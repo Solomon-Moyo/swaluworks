@@ -1,0 +1,43 @@
+<section id="services" class="section section-light">
+    <div class="container">
+        <h2 class="section-title">Our Services</h2>
+
+        <div class="service-cards">
+            <div *ngFor="let service of services" class="card">
+                <h3>{{ service.title }}</h3>
+                <p>{{ service.description }}</p>
+                <!-- Desktop gallery (many thumbnails) -->
+                <div class="gallery desktop-gallery" *ngIf="!isMobileView()">
+                    <img *ngFor="let img of service.images.slice(0, maxThumbnails); let i = index" [src]="img"
+                        [alt]="service.title + ' image ' + (i + 1)" class="thumbnail" loading="lazy"
+                        (click)="openImage(service.images, i)" />
+                    <div *ngIf="service.images.length > maxThumbnails" class="more-overlay"
+                        (click)="openImage(service.images, maxThumbnails)" tabindex="0" role="button"
+                        aria-label="Show more images" (keydown.enter)="openImage(service.images, maxThumbnails)">
+                        +{{ service.images.length - maxThumbnails }} more
+                    </div>
+                </div>
+
+                <!-- Mobile gallery preview (1 large image + button) -->
+                <div class="mobile-gallery" *ngIf="isMobileView()">
+                    <img [src]="service.images[0]" [alt]="service.title + ' main image'" class="mobile-preview-image"
+                        loading="lazy" (click)="openImage(service.images, 0)" />
+                    <button class="btn-primary view-gallery-btn" (click)="openImage(service.images, 0)"
+                        attr.aria-label="Open gallery for {{ service.title }}">
+                        View Gallery
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal with navigation -->
+    <div class="image-modal" *ngIf="selectedServiceImages.length > 0" (click)="closeImage()" aria-hidden="false">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+            <button class="nav-button left" (click)="prevImage()">&#10094;</button>
+            <img [src]="selectedServiceImages[selectedImageIndex]" class="modal-image" />
+            <button class="nav-button right" (click)="nextImage()">&#10095;</button>
+        </div>
+    </div>
+</section>

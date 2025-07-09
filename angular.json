@@ -81,7 +81,11 @@
                 "input": "public"
               }
             ],
-            "styles": ["src/styles.scss"]
+            "styles": [
+              "node_modules/swiper/swiper-bundle.min.css",
+              "src/styles.css"
+            ],
+            "scripts": ["node_modules/slick-carousel/slick/slick.min.js"]
           }
         }
       }
