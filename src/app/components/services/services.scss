@@ -87,8 +87,8 @@ body {
 
 .modal-content {
   position: relative;
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 30%;
+  max-height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,12 +96,11 @@ body {
 
 .modal-image {
   max-width: 100%;
-  max-height: 80vh;
+  max-height: 100%;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
   width: 600px; /* or 100% for responsiveness */
-  height: 400px;
   object-fit: cover; /* or 'contain' for letterboxing */
 }
 
@@ -191,5 +190,13 @@ body {
       font-size: 1rem;
       font-weight: 700;
     }
+  }
+  .modal-content {
+    position: relative;
+    max-width: 70%;
+    max-height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

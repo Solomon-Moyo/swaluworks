@@ -75,68 +75,6 @@ body {
   }
 }
 
-/* SERVICES */
-.section-title {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 3rem;
-  font-weight: 600;
-}
-
-.section-light {
-  background-color: #fdfdfd;
-}
-
-.service-cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-
-  .card {
-    background: #fff;
-    padding: 2rem;
-    flex: 1 1 350px;
-    border-left: 4px solid #007bff;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: translateY(-5px);
-    }
-
-    h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 0.95rem;
-      color: #555;
-    }
-
-    .gallery {
-      margin-top: 1rem;
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-
-      img {
-        width: 100px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 4px;
-        transition: transform 0.3s ease;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-
-        &:hover {
-          transform: scale(1.05);
-        }
-      }
-    }
-  }
-}
-
 /* ABOUT */
 .section-dark {
   background-color: #212121;
