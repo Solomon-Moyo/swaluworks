@@ -167,6 +167,15 @@ body {
 .mobile-gallery {
   display: none;
 }
+.modal-image {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 1;
+}
+
+.modal-image.ng-leave,
+.modal-image.ng-enter {
+  opacity: 0;
+}
 
 @media (max-width: 768px) {
   .desktop-gallery {
