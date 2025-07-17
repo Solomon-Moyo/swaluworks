@@ -35,6 +35,10 @@
     <!-- Modal with navigation -->
     <div class="image-modal" *ngIf="selectedServiceImages.length > 0" (click)="closeImage()" aria-hidden="false">
         <div class="modal-content" (click)="$event.stopPropagation()">
+            <button class="close-button" (click)="closeImage()" aria-label="Close modal">
+                Close
+            </button>
+
             <button class="nav-button left" (click)="prevImage()">&#10094;</button>
             <img [src]="selectedServiceImages[selectedImageIndex]" class="modal-image" />
             <button class="nav-button right" (click)="nextImage()">&#10095;</button>
