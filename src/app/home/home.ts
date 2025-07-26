@@ -1,9 +1,10 @@
 import { Component, ElementRef, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Services } from "../components/services/services";
+import { TestimonialsSectionComponent } from "../components/testimonials-section/testimonials-section.component";
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, Services],
+  imports: [CommonModule, Services, TestimonialsSectionComponent],
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })

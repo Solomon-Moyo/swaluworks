@@ -380,6 +380,15 @@ footer {
 
   .about {
     flex-direction: column;
+    .about-text {
+      flex: 1 1 50%;
+
+      h2 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        text-align: center;
+      }
+    }
   }
 
   .service-cards {

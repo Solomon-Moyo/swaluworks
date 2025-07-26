@@ -1,0 +1,19 @@
+<section class="testimonial-section">
+    <h2 class="section-title">What Our Clients Say</h2>
+    <div class="testimonial-wrapper">
+        <button class="arrow left" (click)="scrollTestimonials(-1)">&#10094;</button>
+        <div class="testimonial-container" #testimonialSlider>
+            <div class="testimonial" *ngFor="let t of testimonials">
+                <div class="client-info">
+                    <img [src]="t.image" [alt]="t.name" />
+                    <div>
+                        <div class="name">{{ t.name }}</div>
+                        <div class="date">{{ t.date }}</div>
+                    </div>
+                </div>
+                <p>{{ t.message }}</p>
+            </div>
+        </div>
+        <button class="arrow right" (click)="scrollTestimonials(1)">&#10095;</button>
+    </div>
+</section>
